@@ -1,7 +1,8 @@
 TODO
 ----
 
-I really like this project but I think the interface is to complex.  A good API has a high power : complexity ratio, currently the popwe is all there, however its a little to complex.
+I really like this project but I think the interface is to complex.  A good API has a high power : complexity ratio,
+currently the power is all there, but its a little to complex: you have to learn about `RIButtonItem` before you can use it.
 
 Im going to do some minor alterations: remove `RIButtonItem` and add the block directly into the UIAlertView interface. 
 
