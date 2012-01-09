@@ -1,4 +1,16 @@
-README
+TODO
+----
+
+I really like this project but I think the interface is to complex.  A good API has a high power : complexity ratio, currently the popwe is all there, however its a little to complex.
+
+Im going to do some minor alterations: remove `RIButtonItem` and add the block directly into the UIAlertView interface. 
+
+Original repo is [here](https://github.com/jivadevoe/UIAlertView-Blocks)
+
+****************
+
+
+OLD README
 ======
 
 This is a quickie pair of categories on UIAlertView and UIActionSheet which enables you to use blocks to handle the button selection instead of implementing a delegate.
