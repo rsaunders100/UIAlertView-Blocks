@@ -26,9 +26,18 @@ cancelButtonAction:(void (^)(void))inCancelAction
                  cancelButtonTitle:inCancelButtonTitle
                   otherButtonTitles:nil]))
     {
+      // Since this is a catogory, we cant add properties in the usual way.
+      // Instead we bind the delegate block to the pointer to self.
+      // We use copy to invoke block_copy() to ensure the block is copied off the stack to the heap
+      // so that it stays around.
       objc_setAssociatedObject(self, CANCEL_ACTION_ASS_KEY, inCancelAction, OBJC_ASSOCIATION_COPY_NONATOMIC);
+      
+      // We want to get the delegate callback so that we can invoke the given block
       [self setDelegate:self];
-      [self retain]; // keep yourself around!
+      
+      // We retain ouself because we want to keep this object alive until its dismissed.
+      // We will call release when we get the delegate callback.
+      [self retain]; 
     }
     return self;
 }
@@ -46,11 +55,13 @@ cancelButtonAction:(void (^)(void)) inCancelButtonAction
                cancelButtonTitle:inCancelButtonTitle
                otherButtonTitles:inOtherButtonTitle,nil]))
   {
+    // See commets from the above
+    
     objc_setAssociatedObject(self, CANCEL_ACTION_ASS_KEY, inCancelButtonAction, OBJC_ASSOCIATION_COPY_NONATOMIC);
     objc_setAssociatedObject(self, OTHER_ACTION_ASS_KEY, inOtherButtonAction, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
     [self setDelegate:self];
-    [self retain]; // keep yourself around!
+    [self retain];
   }
   return self;
 }
@@ -59,8 +70,10 @@ cancelButtonAction:(void (^)(void)) inCancelButtonAction
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-  void (^action)(void);
+  // Decalare the block variable
+  void (^action)(void) = nil;
   
+  // Get the block using the correct key
   if (buttonIndex == 0) 
   {
     action  = objc_getAssociatedObject(self, CANCEL_ACTION_ASS_KEY);
@@ -69,12 +82,16 @@ cancelButtonAction:(void (^)(void)) inCancelButtonAction
   {
     action  = objc_getAssociatedObject(self, OTHER_ACTION_ASS_KEY);
   }
+  
+  // Invoke the block if we have it.
   if (action) action();
   
+  // Unbind both blocks from ourself so they are released
   objc_setAssociatedObject(self, CANCEL_ACTION_ASS_KEY, nil, OBJC_ASSOCIATION_COPY);
   objc_setAssociatedObject(self, OTHER_ACTION_ASS_KEY, nil, OBJC_ASSOCIATION_COPY);
   
-  [self release]; // and release yourself!
+  // We can now release ourselfs, since we retained it eariler.
+  [self release]; 
 }
 
 @end

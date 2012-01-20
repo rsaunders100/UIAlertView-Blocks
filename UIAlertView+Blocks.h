@@ -12,11 +12,23 @@
 @interface UIAlertView (Blocks)
 
 
+/* 
+ 
+ These methods only work if you want a one or two button alert view.  
+ This should do for 90% of use cases, if you need more button use the standard constructor.
+ 
+ */
+
+
+
+// One button alert view
 -(id)initWithTitle:(NSString *)inTitle 
            message:(NSString *)inMessage
   cancelButtonTitle:(NSString *)inCancelButtonTitle
 cancelButtonAction:(void (^)(void))inCancelAction;
 
+
+// Two button alert view
 -(id)initWithTitle:(NSString *)inTitle 
            message:(NSString *)inMessage
   cancelButtonTitle:(NSString *)inCancelButtonTitle
