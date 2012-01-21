@@ -14,27 +14,29 @@
 
 /* 
  
- These methods only work if you want a one or two button alert view.  
+ This method only work if you want a one or two button alert view.  
  This should do for 90% of use cases, if you need more button use the standard constructor.
+ 
+ For a one button alert provide nil for both the right button title and action
+  
+ This method will create and display the alert and automatically invoke the given block
+  when the button is tapped.
+ 
+ 
+ Example usage:
+ 
+    TODO
+ 
  
  */
 
++ (void) displayAlertWithTitle:(NSString *)title 
+                       message:(NSString *)message
+               leftButtonTitle:(NSString *)leftButtonTitle
+              leftButtonAction:(void (^)(void))leftButtonAction
+              rightButtonTitle:(NSString*)rightButtonTitle
+             rightButtonAction:(void (^)(void))rightButtonAction;
 
-
-// One button alert view
--(id)initWithTitle:(NSString *)inTitle 
-           message:(NSString *)inMessage
-  cancelButtonTitle:(NSString *)inCancelButtonTitle
-cancelButtonAction:(void (^)(void))inCancelAction;
-
-
-// Two button alert view
--(id)initWithTitle:(NSString *)inTitle 
-           message:(NSString *)inMessage
-  cancelButtonTitle:(NSString *)inCancelButtonTitle
-cancelButtonAction:(void (^)(void))inCancelAction
-  otherButtonTitle:(NSString*)inOtherButtonTitle
-otherButtonAction:(void (^)(void))inOtherButtonAction;
 
 
 @end
