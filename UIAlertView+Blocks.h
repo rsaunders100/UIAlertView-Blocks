@@ -24,8 +24,22 @@
  
  
  Example usage:
- 
-    TODO
+
+[UIAlertView displayAlertWithTitle:@"Example Alert View With Blocks"
+                           message:@"What is the meaning of life?"
+                   leftButtonTitle:@"41"
+                  leftButtonAction:^{
+                    NSLog(@"Incorrect");
+                  } 
+                  rightButtonTitle:@"42"
+                 rightButtonAction:^{
+                   [UIAlertView displayAlertWithTitle:@"Result"
+                                              message:@"You chose wisely"
+                                      leftButtonTitle:@"Ok"
+                                     leftButtonAction:nil
+                                     rightButtonTitle:nil
+                                    rightButtonAction:nil];
+                 }];
  
  
  */
