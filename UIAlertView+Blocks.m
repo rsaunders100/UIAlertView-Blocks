@@ -49,11 +49,16 @@ cancelButtonAction:(void (^)(void)) inCancelButtonAction
     if (inCancelButtonAction || inOtherButtonAction) 
     {
       // We want to get the delegate callback so that we can invoke the given block
-      [self setDelegate:self];
+      self.delegate = self;
       
       // We retain ouself because we want to keep this object alive until its dismissed.
       // We will call release when we get the delegate callback.
       [self retain];
+    } 
+    else 
+    {
+      // No blocks have been given so dont set the delegate
+      self.delegate = nil;
     }
   }
   return self;
