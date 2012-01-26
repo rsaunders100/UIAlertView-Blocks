@@ -21,8 +21,8 @@ How to use it
 Thats it.
 
  * No `UIAlertView* alert = ...`
- * No [alert show];
- * No [alert release];
+ * No `[alert show];`
+ * No `[alert release];`
  * No need for a delegate.
  * Inline blocks
  
@@ -36,6 +36,8 @@ Limitations
 ----------
 
 **You can only have one or two buttons in the alert view**.  If you want three or more buttons you will have to revert back to the old ways.
+
+Based on a project by [jivadevoe](https://github.com/jivadevoe/UIAlertView-Blocks).
 
 
 ORIGINAL LICENSE
