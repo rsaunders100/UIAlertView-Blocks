@@ -37,11 +37,15 @@ Limitations
 
 **You can only have one or two buttons in the alert view**.  If you want three or more buttons you will have to revert back to the old ways.
 
+
+==================================
+
+
+
 Based on a project by [jivadevoe](https://github.com/jivadevoe/UIAlertView-Blocks).
 
 
-ORIGINAL LICENSE
--------
+**ORIGINAL LICENSE**
 
 Copyright (C) 2011 by Random Ideas, LLC
 
