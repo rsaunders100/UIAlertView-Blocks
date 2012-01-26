@@ -1,4 +1,4 @@
-How to use it
+How to use:
 ------------
 
     [UIAlertView displayAlertWithTitle:@"Example Alert View With Blocks"
@@ -32,8 +32,8 @@ Actions are optional.  To not have one, set it to `nil`.
 
 
 
-Limitations
-----------
+**LIMITATIONS**
+
 
 **You can only have one or two buttons in the alert view**.  If you want three or more buttons you will have to revert back to the old ways.
 
