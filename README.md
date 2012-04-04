@@ -20,16 +20,17 @@ How to use:
 
 Thats it.
 
- * No `UIAlertView* alert = ...`
- * No `[alert show];`
- * No `[alert release];`
- * No need for a delegate.
- * Inline blocks
+You dont need to add the following:
+ 
+    UIAlertView* alert = ...
+    [alert show];
+    [alert release];`
+    
+You dont need a delegate.
  
 To have one button only, set the right button title to `nil`.  
 
 Actions are optional.  To not have one, set it to `nil`.
-
 
 
 **LIMITATIONS**
