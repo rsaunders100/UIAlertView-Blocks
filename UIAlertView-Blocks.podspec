@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '4.3'
   s.source       = { :git => "https://github.com/rsaunders100/UIAlertView-Blocks.git"}
   s.source_files = 'UIAlertView+Blocks.{h,m}'
-  s.requires_arc = true
+  s.requires_arc = false
 end
